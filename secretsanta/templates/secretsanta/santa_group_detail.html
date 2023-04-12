@@ -1,0 +1,18 @@
+{% extends 'secretsanta/base.html' %}
+
+{% block content %}
+    <article class="santagroup">
+        {% if group.joinable %}
+            <aside class="actions">
+                <a class="btn btn-secondary" href="{% url 'santa_group_edit' pk=group.pk %}">
+                  {% include './icons/pencil-fill.svg' %}
+                </a>
+            </aside>
+            <h2>{{ group.name }}</h2>
+            <p>{{ group.description|linebreaksbr }}</p>
+            <time class="date">Date de remise des cadeaux : {{ group.distribution_date }}</time>
+        {% else %}
+            <p>Désolé, ce groupe n'est plus accessible :/</p>
+        {% endif %}
+    </article>
+{% endblock %}

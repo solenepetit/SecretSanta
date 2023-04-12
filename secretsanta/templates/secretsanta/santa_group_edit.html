@@ -1,0 +1,9 @@
+{% extends 'secretsanta/base.html' %}
+
+{% block content %}
+    <h2>Nouveau groupe</h2>
+    <form method="POST" class="santagroup-form">{% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="save btn btn-secondary">Enregistrer</button>
+    </form>
+{% endblock %}
